@@ -64,8 +64,8 @@ The M/o/Vfuscator uses LCC as the compiler frontend.  The included build script
 will automatically download LCC, configure it for the mov backend, and build the
 M/o/Vfuscator tool.
 
-If you are building on a 64 bit system, ensure that you have a 32 bit libc
-available (for example, 'apt-get install libc6-dev-i386' or 'yum install
+_If you are building on a 64 bit system, ensure that you have a 32 bit libc
+available_ (for example, 'apt-get install libc6-dev-i386' or 'yum install
 glibc-devel.i686').
 
 ```
@@ -76,7 +76,7 @@ sudo ./install.sh
 ```
 
 If you have trouble building LCC, you can get more details on the LCC build
-process at: http://drh.github.io/lcc/current/doc/install.html
+process at: https://drh.github.io/lcc/current/doc/install.html
 
 ## Testing
 
@@ -111,7 +111,9 @@ Flags are passed to the compiler proper via -Wfflag, e.g. -Wf--no-mov-id
 
 --no-mov-flow
   Use jmp instructions in implementing control flow.  This will substantially
-  speed up execution in larger projects.
+  speed up execution in larger projects.  If using floating point operations
+  with this flag, link to softfloat*_cf.o instead of the fully obfuscated
+  libraries.
 
 --mov-extern
   Use mov instructions to implement external function calls.  This is the
@@ -335,7 +337,7 @@ Current post-processing scripts include:
 * Slides outlining the mechanisms used are [here](slides/domas_2015_the_movfuscator.pdf).
 
 * The inspiration for the compiler is the paper ["mov is Turing-complete", 
-  by Stephen Dolan](http://www.cl.cam.ac.uk/~sd601/papers/mov.pdf).
+  by Stephen Dolan](http://stedolan.net/research/mov.pdf).
 
 ## Author
 
